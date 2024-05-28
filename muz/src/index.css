@@ -1,0 +1,37 @@
+/* Сброс некоторых базовых стилей браузера */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Установка базового размера шрифта и семейства шрифтов для всего приложения */
+html {
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+/* Стили для тела документа */
+body {
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Глобальные стили для ссылок */
+a {
+  color: #007bff;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Глобальный класс контейнера для консистентного отступа */
+.container {
+  padding: 0 20px;
+  margin: 0 auto;
+}
