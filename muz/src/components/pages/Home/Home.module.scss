@@ -28,18 +28,24 @@
   .main {
     flex: 1;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     .hero {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       background: linear-gradient(rgba(250, 243, 224, 0.5), rgba(250, 243, 224, 0.5)),
         url('/assets/img/hero.jpg') no-repeat center center;
       background-size: cover;
       border-radius: 10px;
-      height: 60vh;
+      height: 35vh;
       margin-bottom: 40px;
       position: relative;
+      width: 100%;
+      animation: fadeIn 2s ease-in-out;
 
       .heroContent {
         text-align: center;
@@ -77,47 +83,57 @@
     .section {
       opacity: 0;
       animation: fadeInSection 2s ease-in-out forwards;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+
+      &:nth-child(2) {
+        animation-delay: 1s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 1.5s;
+      }
+
+      &:nth-child(4) {
+        animation-delay: 2s;
+      }
     }
 
     .featuredCategories,
-    .featuredProducts,
-    .specialOffers {
-      margin-bottom: 40px;
-
+    .featuredProducts {
       .sectionTitle {
-        font-size: 2em;
-        margin-bottom: 20px;
+        font-size: 2.5em;
+        // margin-bottom: 10px;
         color: #ff8c42; /* Теплый оранжевый акцент */
         text-align: center;
         font-family: 'Merriweather', serif; /* Применение нового шрифта */
       }
 
       .categoriesGrid,
-      .productsGrid,
-      .offersGrid {
+      .productsGrid {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 20px;
+        gap: 40px;
+        width: 100%;
       }
 
       .categoryCard,
-      .productCard,
-      .offerCard {
+      .productCard {
         background-color: #f4f4f4; /* Светлый фон карточек */
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         overflow: hidden;
         text-align: center;
         transition: transform 0.3s;
-        width: calc(33.333% - 20px);
+        margin-top: 20px;
+        width: calc(30% - 10px);
 
-        @media (max-width: 768px) {
-          width: calc(50% - 20px);
-        }
-
-        @media (max-width: 480px) {
-          width: 100%;
+        &:nth-child(2n) {
+          margin-top: 20px;
         }
 
         &:hover {
@@ -126,12 +142,12 @@
 
         img {
           width: 100%;
-          height: 200px;
+          height: 150px;
           object-fit: cover;
         }
 
         h3 {
-          font-size: 1.2em;
+          font-size: 1.8em;
           margin: 10px 0;
           color: #ff8c42; /* Теплый оранжевый акцент */
           font-family: 'Merriweather', serif; /* Применение нового шрифта */
@@ -145,7 +161,7 @@
 
         a {
           display: block;
-          padding: 10px;
+          padding: 20px;
           text-decoration: none;
           color: inherit;
         }
