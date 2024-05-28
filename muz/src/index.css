@@ -1,3 +1,6 @@
+/* Импортируем шрифт из Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400&display=swap');
+
 /* Сброс некоторых базовых стилей браузера */
 *,
 *::before,
@@ -10,14 +13,14 @@
 /* Установка базового размера шрифта и семейства шрифтов для всего приложения */
 html {
   font-size: 16px;
-  font-family: Arial, sans-serif;
+  font-family: 'Merriweather', serif;
 }
 
 /* Стили для тела документа */
 body {
   line-height: 1.6;
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: #f4f4f4; /* Ванильный фон */
+  color: #333; /* Темный текст */
 }
 
 /* Глобальные стили для ссылок */
@@ -34,4 +37,15 @@ a {
 .container {
   padding: 0 20px;
   margin: 0 auto;
+}
+
+/* Стиль для заголовков */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Merriweather', serif;
+  color: #ff8c42; /* Теплый оранжевый акцент */
 }
