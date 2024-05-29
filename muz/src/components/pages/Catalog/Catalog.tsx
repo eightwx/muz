@@ -13,15 +13,12 @@ const Catalog: React.FC = () => {
   const query = useQuery();
   const navigate = useNavigate();
   const initialCategory = query.get('category') || 'Все категории';
-  const initialOnSale = query.get('onSale') === 'true';
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
-  const [showOnSale, setShowOnSale] = useState(initialOnSale);
 
   useEffect(() => {
     setSelectedCategory(initialCategory);
-    setShowOnSale(initialOnSale);
-  }, [initialCategory, initialOnSale]);
+  }, [initialCategory]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -31,16 +28,11 @@ const Catalog: React.FC = () => {
     setSelectedCategory(e.target.value);
   };
 
-  const handleOnSaleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setShowOnSale(e.target.checked);
-  };
-
   const filteredProducts = products.filter((product) => {
     const isInCategory =
       selectedCategory === 'Все категории' || product.category === selectedCategory;
     const matchesSearchTerm = product.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const isOnSale = !showOnSale || product.isOnSale;
-    return isInCategory && matchesSearchTerm && isOnSale;
+    return isInCategory && matchesSearchTerm;
   });
 
   return (
@@ -48,10 +40,10 @@ const Catalog: React.FC = () => {
       <Header />
       <div className={styles.catalog}>
         <main className={styles.main}>
-          <h1>Каталог товаров</h1>
           <button className={styles.backButton} onClick={() => navigate(-1)}>
             Назад
           </button>
+          <h1>Каталог товаров</h1>
           <div className={styles.filters}>
             <input
               type="text"
@@ -71,15 +63,6 @@ const Catalog: React.FC = () => {
               <option value="Струнные">Струнные</option>
               <option value="Духовые">Духовые</option>
             </select>
-            <label className={styles.onSaleLabel}>
-              <input
-                type="checkbox"
-                checked={showOnSale}
-                onChange={handleOnSaleChange}
-                className={styles.onSaleCheckbox}
-              />
-              Только товары на скидке
-            </label>
           </div>
           <div className={styles.productGrid}>
             {filteredProducts.map((product, index) => (

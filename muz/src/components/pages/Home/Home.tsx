@@ -30,7 +30,6 @@ const Home: React.FC = () => {
             {categories.map((category, index) => (
               <div key={index} className={styles.categoryCard}>
                 <Link to={`/catalog?category=${encodeURIComponent(category.name)}`}>
-                  <img src={category.image} alt={category.name} />
                   <h3>{category.name}</h3>
                 </Link>
               </div>
