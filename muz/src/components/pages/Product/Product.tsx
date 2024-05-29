@@ -5,9 +5,12 @@ import products from '../../../data/productData';
 import Footer from '../../Footer/Footer';
 import Header from '../../Header/Header';
 
+// Компонент `Product` отвечает за отображение страницы отдельного продукта
 const Product: React.FC = () => {
+  // Получаем ID продукта из параметров URL
   const { productId } = useParams<{ productId: string }>();
   const navigate = useNavigate();
+  // Находим продукт по его ID
   const product = products.find((p) => p.name === productId);
 
   if (!product) {
@@ -19,19 +22,24 @@ const Product: React.FC = () => {
       <Header />
       <div className={styles.product}>
         <main className={styles.main}>
+          {/* Кнопка для возврата на предыдущую страницу */}
           <button className={styles.backButton} onClick={() => navigate(-1)}>
             Назад
           </button>
-          <h1>{product.name}</h1>
-          <img src={product.image} alt={product.name} />
-          <p>{product.price} руб.</p>
-          <p>{product.description}</p>
-          <h2>Характеристики</h2>
-          <ul>
-            {product.specifications.map((spec, index) => (
-              <li key={index}>{spec}</li>
-            ))}
-          </ul>
+          <div className={styles.productCard}>
+            <h1>{product.name}</h1>
+            <img src={product.image} alt={product.name} />
+            <p className={styles.price}>{product.price} руб.</p>
+            <p className={styles.description}>{product.description}</p>
+            <div className={styles.specifications}>
+              <h2>Характеристики</h2>
+              <ul>
+                {product.specifications.map((spec, index) => (
+                  <li key={index}>{spec}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </main>
       </div>
       <Footer />

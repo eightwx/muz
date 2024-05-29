@@ -1,0 +1,107 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #faf3e0; /* Ванильный фон */
+  color: #333; /* Темный текст */
+
+  .main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1s ease-in-out;
+
+    .backButton {
+      align-self: flex-start;
+      padding: 10px 20px;
+      background-color: #ff8c42;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      margin-bottom: 20px;
+      transition: background-color 0.3s;
+      font-family: 'Merriweather', serif;
+
+      &:hover {
+        background-color: #e67628;
+      }
+    }
+
+    .productCard {
+      background-color: rgba(255, 255, 255, 0.8); /* Прозрачный белый фон */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: center;
+      padding: 20px;
+      max-width: 600px;
+      width: 100%;
+      margin-bottom: 20px;
+      animation: fadeIn 1.5s ease-in-out;
+
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #ff8c42; /* Теплый оранжевый акцент */
+        font-family: 'Merriweather', serif;
+      }
+
+      img {
+        width: 500px;
+        height: 600px;
+        margin-bottom: 20px;
+        border-radius: 10px; /* Закругленные края */
+      }
+
+      .price {
+        font-size: 1.5em;
+        color: #e67628;
+        margin-bottom: 20px;
+        font-family: 'Merriweather', serif;
+      }
+
+      .description {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        font-family: 'Merriweather', serif;
+        color: #666;
+      }
+
+      .specifications {
+        h2 {
+          margin-top: 20px;
+          margin-bottom: 10px;
+          color: #ff8c42;
+          font-family: 'Merriweather', serif;
+        }
+
+        ul {
+          list-style-type: none;
+          padding: 0;
+
+          li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-family: 'Merriweather', serif;
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+}

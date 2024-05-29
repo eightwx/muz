@@ -1,17 +1,31 @@
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1e1e1e; /* Темный фон */
+  background-color: #f8e2cf; /* Светлый фон */
   padding: 10px 20px;
-  color: #e0e0e0;
+  color: #4b3832; /* Темный текст */
+  opacity: 0;
+  animation: slideInFromTop 1s forwards;
 
   .logo {
     font-size: 1.5em;
     font-weight: bold;
+    font-family: 'Merriweather', serif; /* Применение нового шрифта */
 
     a {
-      color: #42a5f5; /* Яркий акцентный цвет */
+      color: #ff8c42; /* Теплый оранжевый акцент */
       text-decoration: none;
 
       &:hover {
@@ -25,8 +39,9 @@
     gap: 15px;
 
     a {
-      color: #e0e0e0;
+      color: #4b3832;
       text-decoration: none;
+      font-family: 'Merriweather', serif; /* Применение нового шрифта */
 
       &:hover {
         text-decoration: underline;
@@ -36,9 +51,10 @@
     .logout {
       background: none;
       border: none;
-      color: #e0e0e0;
+      color: #4b3832;
       cursor: pointer;
       font-size: 1em;
+      font-family: 'Merriweather', serif; /* Применение нового шрифта */
 
       &:hover {
         text-decoration: underline;
